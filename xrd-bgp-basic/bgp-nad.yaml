@@ -1,0 +1,17 @@
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br-1
+  namespace: xrd 
+spec:
+  config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+#---
+#apiVersion: k8s.cni.cncf.io/v1
+#kind: NetworkAttachmentDefinition
+#metadata:
+#  name: br-2
+#  namespace: xrd 
+#spec:
+#  config: '{ "cniVersion": "0.3.1", "name": "br-2", "type": "macvlan", "mode": "bridge", "master": "eno1", "ipam": { }}'
+#  #config: '{ "cniVersion": "0.3.1", "name": "br-2", "type": "macvlan", "mode": "bridge", "ipam": { }}'

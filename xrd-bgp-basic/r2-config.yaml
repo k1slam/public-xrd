@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: r2-config
+  namespace: xrd
+  annotations:
+
+  labels:
+    #helm.sh/chart: xrd-control-plane-1.0.1
+    #app.kubernetes.io/name: xrd-control-plane
+    #app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "7.8.1"
+    #app.kubernetes.io/managed-by: Helm
+data:
+  startup.cfg: |
+    hostname XRd2
+    username redhat
+     group root-lr
+     group cisco-support
+     password redhat123
+    interface GigabitEthernet0/0/0/0
+     ipv4 address 192.168.86.242 255.255.255.0
+     no shut
+    interface loopback 0
+     ipv4 address 1.1.1.2 255.255.255.255
+    router static
+     address-family ipv4 unicast
+     0.0.0.0/0 192.168.86.1     
+    router bgp 100
+     address-family ipv4 unicast
+      redistribute connected
+     neighbor 192.168.86.251
+      remote-as 100
+      address-family ipv4 unicast
+     neighbor 192.168.86.252
+      remote-as 100
+      address-family ipv4 unicast

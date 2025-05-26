@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: rr1
+  namespace: xrd 
+  annotations:
+  labels:
+    app.kubernetes.io/name: rr1
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "7.8.1"
+spec:
+  replicas: 1
+  serviceName: rr1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: rr1
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      annotations:
+        k8s.v1.cni.cncf.io/networks: |-
+          [
+            {
+              "name": "br-1"
+            }
+          ]
+
+      labels:
+        app.kubernetes.io/name: rr1
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "7.8.1"
+    spec:
+      serviceAccount: xrd-sa
+      serviceAccountName: xrd-sa
+      volumes:
+      - name: config
+        configMap:
+          name: rr1-config
+          items:
+            - key: startup.cfg
+              path: startup.cfg
+      containers:
+      - image: "REPLACE_ME"
+        resources:
+          limits: {}
+          requests:
+            memory: 2Gi
+        name: main
+        securityContext:
+          privileged: true
+        imagePullPolicy: Always
+        tty: true
+        stdin: true
+        env:
+        - name: XR_ENV_VARS_VERSION
+          value: "1"
+        - name: XR_FIRST_BOOT_CONFIG
+          value: /etc/xrd/startup.cfg
+        - name: XR_INTERFACES
+          value: linux:net1,xr_name=GigabitEthernet0/0/0/0 
+        - name: XR_MGMT_INTERFACES
+          value: ""
+        volumeMounts:
+        - mountPath: /etc/xrd
+          name: config
+          readOnly: true
