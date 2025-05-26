@@ -2,7 +2,8 @@
 
 This repository deploys 8 instances of IOS-XRd and preconfigures OpenShift and the XRd instances to create a network topology that emulates a basic BGP deployment. 
 
-The following OpenShift topology is create by succesfully executing this reposity (excluding the external router): 
+The following OpenShift topology is create by succesfully executing this reposity: 
+> While the network is fully contained within a Singe Node Openshift (SNO) cluster, it does implement external connectivity through a secondary interface on the compute host. The configuration of upstream router is not included in this repo.
 
 ![image](https://github.com/user-attachments/assets/6642b3c2-9de3-4f9e-a578-48345c1a3b1b)
 
@@ -15,9 +16,9 @@ Upon execution, the configmaps included in the repo, will pre-configure the XRd 
 ## Pre-Requisites:
 To use this repository, you will need the following: 
 
-1. A Single Node OpenShift (SNO) Cluster with xxx CPU cores and xxx GB Memory for workloads
+1. A Single Node OpenShift (SNO) Cluster with approximately 500 CPU millicores 2GB Memory for each XRd workload. This is an estimate and actual needs could be slightly lower or higher. 
 2. A bastion host to access the SNO, store the yamls file and excute `oc` commands. I use a Raspberry Pi, you can use anything - Windows command prompt, Mac terminal, or any linux host
-3. SNO tuned for XRd workloads as outline in our Blog and Syed Hassan's Public XRd Repo
+3. SNO tuned for XRd workloads as outlined in our previous [Blog](https://cloudify.network/nw_xrd_cp.html "Cloudify Dot Network: Deploying Cisco XRd on Red Hat OpenShift") and on Syed Hassan's [Public XRd Repo](https://github.com/git-shassan/xrd-public "Syed Hassan's XRd Repo")
 4. Access to Cisco XRd Software on a registry accessible from your SNO
 
 
