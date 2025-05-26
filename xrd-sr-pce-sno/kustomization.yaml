@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+# Configure performance profile. For OCP 4.12 and below, this PAO Operataor
+
+# NAD deployment
+- sr-pce-nad.yaml 
+
+# Configmap deployment
+- testbed-config.yaml 
+
+# Stateful set to deploy XRd application
+- r1-statefulset.yaml
+- r2-statefulset.yaml
+- r3-statefulset.yaml
+- r4-statefulset.yaml
+- r5-statefulset.yaml
+- r6-statefulset.yaml
+- pce1-statefulset.yaml

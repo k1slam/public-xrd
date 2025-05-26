@@ -1,0 +1,90 @@
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br1-2
+  namespace: sr-pce
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br1-2", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br1-3
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br1-3", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br2-3
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br2-3", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br2-4
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br2-4", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br2-101
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br2-101", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br3-5
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br3-5", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br4-5
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br4-5", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br4-6
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br4-6", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br4-101
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br4-101", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br5-6
+  namespace: sr-pce 
+spec:
+  config: '{ "cniVersion": "0.3.1", "type": "bridge", "bridge": "br5-6", "ipam": {}}'
+  #config: '{ "cniVersion": "0.3.1", "name": "br-1", "type": "macvlan", "mode": "bridge", "master": "eno4", "ipam": { }}'

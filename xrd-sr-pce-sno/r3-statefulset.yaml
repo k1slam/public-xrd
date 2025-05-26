@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: r3
+  namespace: sr-pce 
+  annotations:
+  labels:
+    app.kubernetes.io/name: r3
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "7.8.1"
+spec:
+  replicas: 1
+  serviceName: r3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: r3
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      annotations:
+        k8s.v1.cni.cncf.io/networks: |-
+          [
+            {
+              "name": "br1-3"
+            },
+            {
+              "name": "br2-3"
+            },
+            {
+              "name": "br3-5"
+            }
+          ]
+
+      labels:
+        app.kubernetes.io/name: r3
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "7.8.1"
+    spec:
+      serviceAccount: sr-pce-sa
+      serviceAccountName: sr-pce-sa
+      volumes:
+      - name: config
+        configMap:
+          name: r3-config
+          items:
+            - key: startup.cfg
+              path: startup.cfg
+      containers:
+      - image: "REPLACE_ME"
+        resources:
+          limits: {}
+          requests:
+            memory: 2Gi
+        name: main
+        securityContext:
+          privileged: true
+        imagePullPolicy: Always
+        tty: true
+        stdin: true
+        env:
+        - name: XR_ENV_VARS_VERSION
+          value: "1"
+        - name: XR_FIRST_BOOT_CONFIG
+          value: /etc/xrd/startup.cfg
+        - name: XR_INTERFACES
+          value: linux:net1,xr_name=GigabitEthernet0/0/0/1;linux:net2,xr_name=GigabitEthernet0/0/0/2;linux:net3,xr_name=GigabitEthernet0/0/0/3 
+        - name: XR_MGMT_INTERFACES
+          value: ""
+        volumeMounts:
+        - mountPath: /etc/xrd
+          name: config
+          readOnly: true
