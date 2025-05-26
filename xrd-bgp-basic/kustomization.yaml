@@ -13,23 +13,23 @@ resources:
 - bgp-nad.yaml 
 
 # Contain configurations for all routers in the BGP topology. These becomes the startup configs for each XRd instance
-- r1-config.yaml
-- r2-config.yaml
-- r3-config.yaml
-- r4-config.yaml
-- r5-config.yaml
-- r6-config.yaml
-- rr1-config.yaml
-- rr2-config.yaml
+#- r1-config.yaml
+#- r2-config.yaml
+#- r3-config.yaml
+#- r4-config.yaml
+#- r5-config.yaml
+#- r6-config.yaml
+#- rr1-config.yaml
+#- rr2-config.yaml
 
 
 # Stateful set to deploy XRd application
-- r1-statefulset.yaml
-- r2-statefulset.yaml
-- r3-statefulset.yaml
-- r4-statefulset.yaml
-- r5-statefulset.yaml
-- r6-statefulset.yaml
-- rr1-statefulset.yaml
-- rr2-statefulset.yaml
+#- r1-statefulset.yaml
+#- r2-statefulset.yaml
+#- r3-statefulset.yaml
+#- r4-statefulset.yaml
+#- r5-statefulset.yaml
+#- r6-statefulset.yaml
+#- rr1-statefulset.yaml
+#- rr2-statefulset.yaml
 
