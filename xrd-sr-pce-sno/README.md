@@ -39,7 +39,7 @@ To successfully execute this repo and create your own XRd based BGP topology, yo
 4. Verify XRd pod instantiation, login to the routers, and verify BGP configuration
 
 ### Step 1 of 4: Copy the Files:
-Once all the prerequisites are met, you can clone the repo or download the yaml files to your local terminal. Make sure this local host has access to the cluster using `oc` cli
+Once all the prerequisites are met, you can clone the repo or download the yaml files to your local terminal. Make sure this local host has access to your OpenShift cluster using `oc` cli
 
 ```
 admin@mipi4:~/git/XRd/bgp-xrd $ ls -l
