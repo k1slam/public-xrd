@@ -8,7 +8,7 @@ The following  topology comprising 7 XRd instances is created by succesfully exe
 
 > This network is fully contained within a Singe Node Openshift (SNO) cluster. It does not implement, nor require, any external connectivity
 
-![image](https://github.com/user-attachments/assets/faf8fddc-c63f-4ca8-a358-8b9de223c902)
+![image](https://github.com/k1slam/public-xrd/blob/main/xrd-sr-pce-sno/xrd-sr-pce-sno-1.png)
 
 Upon successfull execution of the repo, the included configmaps will pre-configure the XRd instances to create the following IGP and BGP Topology, along with the PCE-PCC peering session using PCEP as shown in the topology:
 
