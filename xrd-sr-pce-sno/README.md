@@ -12,7 +12,7 @@ The following  topology comprising 7 XRd instances is created by succesfully exe
 
 Upon successfull execution of the repo, the included configmaps will pre-configure the XRd instances to create the following IGP and BGP Topology, along with the PCE-PCC peering session using PCEP as shown in the topology:
 
-![image](https://github.com/user-attachments/assets/ecbec36e-15a5-4201-a77e-7b98958b2b09)
+![image](https://github.com/k1slam/public-xrd/blob/main/xrd-sr-pce-sno/xrd-sr-pce-sno-2.png)
 
 PCE: Path Compuation Element
 PCC: Path Computation Client
